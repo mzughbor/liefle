@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liefle — Ship your site in under an hour, from $1/mo</title>
+    <meta name="description" content="Liefle is the fastest way to launch a real website. Bring your domain or grab a free 24h subdomain, pick a template, and go live — starting at $1/month." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">liefle</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#start">Sign in</a>
+        <a class="btn btn-primary" href="#start">Start free</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <span class="eyebrow">
+          <span class="dot"></span> Launch in under an hour
+        </span>
+        <h1>
+          Your website.<br />
+          Live before your <span class="grad">coffee gets cold.</span>
+        </h1>
+        <p class="lede">
+          Bring a domain you own or grab a free 24-hour subdomain to try it.
+          Pick a template, fill the wizard, hit publish. Plans start at
+          <strong>$1/month</strong>.
+        </p>
+
+        <!-- Domain check widget -->
+        <form class="domain-card" id="domainForm" novalidate>
+          <div class="domain-row">
+            <label for="domain" class="sr-only">Your domain</label>
+            <span class="prefix">https://</span>
+            <input
+              id="domain"
+              type="text"
+              autocomplete="off"
+              placeholder="mybrand.com"
+              spellcheck="false"
+            />
+            <button class="btn btn-primary" type="submit">Check</button>
+          </div>
+          <div class="domain-toggle">
+            <button type="button" class="link" id="noDomainBtn">
+              I don't have a domain → try a free subdomain for 24h
+            </button>
+          </div>
+          <div class="domain-result" id="domainResult" hidden></div>
+        </form>
+
+        <div class="proof">
+          <div><strong>4,200+</strong><span>sites shipped</span></div>
+          <div><strong>52 min</strong><span>avg time to live</span></div>
+          <div><strong>$1</strong><span>starter plan</span></div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="section">
+        <div class="section-head">
+          <span class="kicker">How it works</span>
+          <h2>Three steps. One hour. Done.</h2>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-num">01</div>
+            <h3>Claim your domain</h3>
+            <p>
+              Already own one? Add one DNS record and click <em>Verify</em> — we
+              confirm in seconds. No domain yet? Spin up a free subdomain for a
+              24-hour test drive.
+            </p>
+            <div class="step-mock">
+              <div class="mock-row"><span>TYPE</span><b>NS</b></div>
+              <div class="mock-row"><span>HOST</span><b>@</b></div>
+              <div class="mock-row"><span>VALUE</span><b>verify.liefle.io</b></div>
+              <div class="mock-status ok">● Verified</div>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step-num">02</div>
+            <h3>Pick a template</h3>
+            <p>
+              A short wizard asks the basics — name, color, one-liner, sections
+              you want — and we render a polished starter you can edit.
+            </p>
+            <div class="step-mock templates">
+              <div class="tpl tpl-1"><span>Studio</span></div>
+              <div class="tpl tpl-2"><span>Cafe</span></div>
+              <div class="tpl tpl-3"><span>SaaS</span></div>
+              <div class="tpl tpl-4"><span>Portfolio</span></div>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step-num">03</div>
+            <h3>Publish &amp; iterate</h3>
+            <p>
+              Hit publish and you're live with HTTPS. Tweak copy, swap images,
+              and update anytime from your dashboard.
+            </p>
+            <div class="step-mock publish">
+              <div class="pub-bar"><span></span><span></span><span></span></div>
+              <div class="pub-url">mybrand.com</div>
+              <div class="pub-cta">Publish →</div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="section">
+        <div class="section-head">
+          <span class="kicker">Pricing</span>
+          <h2>Pay less than a coffee.</h2>
+          <p class="sub">No hidden fees. Cancel anytime. Free 24h trial on subdomains.</p>
+        </div>
+
+        <div class="plans">
+          <article class="plan">
+            <h3>Starter</h3>
+            <div class="price"><span class="cur">$</span><span class="amt">1</span><span class="per">/mo</span></div>
+            <p class="plan-tag">A simple one-page site.</p>
+            <ul>
+              <li>1 site · liefle subdomain</li>
+              <li>5 templates</li>
+              <li>Basic analytics</li>
+              <li>HTTPS included</li>
+            </ul>
+            <a class="btn btn-outline" href="#start">Get Starter</a>
+          </article>
+
+          <article class="plan plan-featured">
+            <div class="badge">Most popular</div>
+            <h3>Maker</h3>
+            <div class="price"><span class="cur">$</span><span class="amt">3</span><span class="per">/mo</span></div>
+            <p class="plan-tag">Bring your own domain.</p>
+            <ul>
+              <li>1 custom domain</li>
+              <li>All templates</li>
+              <li>Contact forms</li>
+              <li>Remove Liefle badge</li>
+            </ul>
+            <a class="btn btn-primary" href="#start">Get Maker</a>
+          </article>
+
+          <article class="plan">
+            <h3>Pro</h3>
+            <div class="price"><span class="cur">$</span><span class="amt">6</span><span class="per">/mo</span></div>
+            <p class="plan-tag">For small businesses.</p>
+            <ul>
+              <li>3 custom domains</li>
+              <li>Priority publishing</li>
+              <li>SEO tools</li>
+              <li>Email support</li>
+            </ul>
+            <a class="btn btn-outline" href="#start">Get Pro</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section faq">
+        <div class="section-head">
+          <span class="kicker">FAQ</span>
+          <h2>Good questions.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>How does the free 24-hour subdomain work?</summary>
+            <p>You get a <code>yourname.liefle.app</code> URL for 24 hours to test the editor and templates. After that we delete it unless you upgrade to a paid plan.</p>
+          </details>
+          <details>
+            <summary>How do I prove I own my domain?</summary>
+            <p>We give you a single NS or TXT record to add at your registrar. Click <em>Verify</em> and we confirm in seconds.</p>
+          </details>
+          <details>
+            <summary>Can I cancel anytime?</summary>
+            <p>Yes. Cancel from your dashboard. Your site stays live until the end of the billing period.</p>
+          </details>
+          <details>
+            <summary>Do I need to know how to code?</summary>
+            <p>No. The wizard does the work. If you do code, you can drop into HTML/CSS on the Pro plan.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="start" class="section cta">
+        <h2>Ready in an hour. Live forever.</h2>
+        <p>Start free on a subdomain or jump straight to $1/mo.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="#top">Start building</a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">See pricing</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <span class="brand-mark">◆</span> liefle · ship a site in under an hour
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
