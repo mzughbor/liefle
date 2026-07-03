@@ -3,8 +3,113 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Liefle — Ship your site in under an hour, from $1/mo</title>
-    <meta name="description" content="Liefle is the fastest way to launch a real website. Bring your domain or grab a free 24h subdomain, pick a template, and go live — starting at $1/month." />
+    <title>Liefle — Launch your website on your domain in minutes, from $1/mo</title>
+    <meta name="description" content="Liefle helps you launch a real website on your own domain in minutes. Connect DNS, pick a template, customize your logo and copy, and publish — plans from $1/month. Free 24-hour subdomain trial." />
+    <meta name="keywords" content="website builder, custom domain, cheap hosting, launch website fast, no-code website, small business website, $1 website" />
+    <meta name="author" content="Liefle" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0f0f12" />
+    <link rel="canonical" href="https://liefle.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Liefle" />
+    <meta property="og:title" content="Liefle — Your website live on your domain in minutes" />
+    <meta property="og:description" content="Connect your domain, choose a template, edit your brand, and publish. Starting at $1/month. Try free for 24 hours on a subdomain." />
+    <meta property="og:url" content="https://liefle.io/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://liefle.io/assets/liefle-main-logo.png" />
+    <meta property="og:image:alt" content="Liefle — ship a site on your own domain" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Liefle — Your website live on your domain in minutes" />
+    <meta name="twitter:description" content="Connect DNS, pick a template, publish in minutes. From $1/month." />
+    <meta name="twitter:image" content="https://liefle.io/assets/liefle-main-logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://liefle.io/#organization",
+            "name": "Liefle",
+            "url": "https://liefle.io/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://liefle.io/assets/logo-icon.png"
+            },
+            "description": "Launch a polished website on your own domain in minutes — templates, DNS connect, and a simple editor from $1/month."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://liefle.io/#website",
+            "url": "https://liefle.io/",
+            "name": "Liefle",
+            "publisher": { "@id": "https://liefle.io/#organization" },
+            "inLanguage": "en-US",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://liefle.io/?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Liefle",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "1",
+              "highPrice": "6",
+              "priceCurrency": "USD",
+              "offerCount": "3"
+            },
+            "description": "Multi-tenant website builder: connect your domain, pick a template, customize, and publish."
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does the free 24-hour subdomain work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "You get a yourname.liefle.app URL for 24 hours to test the editor and templates. After that it is removed unless you upgrade to a paid plan."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I connect my own domain?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Add a CNAME record for www pointing to connect.liefle.io, plus a TXT record to verify ownership. We confirm in seconds and provision HTTPS automatically."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I cancel anytime?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Cancel from your dashboard. Your site stays live until the end of the billing period."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to know how to code?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. A short wizard collects your business details and renders a polished starter site you can edit and publish."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -94,9 +199,9 @@
               24-hour test drive.
             </p>
             <div class="step-mock">
-              <div class="mock-row"><span>TYPE</span><b>NS</b></div>
-              <div class="mock-row"><span>HOST</span><b>@</b></div>
-              <div class="mock-row"><span>VALUE</span><b>verify.liefle.io</b></div>
+              <div class="mock-row"><span>TYPE</span><b>CNAME</b></div>
+              <div class="mock-row"><span>HOST</span><b>www</b></div>
+              <div class="mock-row"><span>VALUE</span><b>connect.liefle.io</b></div>
               <div class="mock-status ok">● Verified</div>
             </div>
           </li>
@@ -197,7 +302,7 @@
           </details>
           <details>
             <summary>How do I prove I own my domain?</summary>
-            <p>We give you a single NS or TXT record to add at your registrar. Click <em>Verify</em> and we confirm in seconds.</p>
+            <p>We give you a CNAME for <code>www</code> plus a TXT record to verify ownership. Click <em>Verify</em> and we confirm in seconds.</p>
           </details>
           <details>
             <summary>Can I cancel anytime?</summary>
