@@ -27,6 +27,7 @@ This folder is the living blueprint for Liefle: a multi-tenant SaaS where each c
 liefle-front/          ← you are here (static marketing + plan)
   index.html           ← landing page (SEO-optimized for now)
   plan/                ← architecture & execution docs
+  wordpress-plugin/    ← parallel track: OSS WP plugin + headless + codegen (see below)
   (future) app/        ← Next.js SaaS app (dashboard + tenant sites)
 
 (future repos or folders)
@@ -57,3 +58,9 @@ You can demo this to one real person:
 5. Public site updates without you touching the server manually.
 
 When all five work reliably, you have validated the idea. Everything else (billing, 10 templates, analytics) is Phase 2+.
+
+---
+
+## Parallel track: WordPress headless bridge
+
+If you want the **OSS plugin + export JSON + Next template + Vercel + AI codegen** learning path (separate from hosted SaaS MVP), see [`../wordpress-plugin/README.md`](../wordpress-plugin/README.md). The two tracks share templates and codegen later; start one as primary to avoid split focus.

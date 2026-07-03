@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-07-04T10:30:00Z",
+  "source": {
+    "siteUrl": "https://demo.local",
+    "wpVersion": "6.5",
+    "pluginVersion": "0.1.0",
+    "locale": "en_US"
+  },
+  "site": {
+    "name": "Riverside Cafe",
+    "tagline": "Fresh roasts daily",
+    "language": "en"
+  },
+  "keys": {
+    "hero.title": "Riverside Cafe",
+    "hero.subtitle": "Fresh roasts, quiet mornings, fast Wi‑Fi.",
+    "hero.image": "https://demo.local/wp-content/uploads/2026/07/hero.jpg",
+    "hero.cta.label": "View menu",
+    "hero.cta.href": "/menu",
+    "about.body": "<p>We opened in 2019 with one goal: serve coffee worth slowing down for.</p>",
+    "contact.email": "hello@riverside.cafe",
+    "contact.phone": "+1 555 0100",
+    "footer.copyright": "© 2026 Riverside Cafe"
+  },
+  "sections": {
+    "hero": {
+      "type": "static",
+      "keys": ["hero.title", "hero.subtitle", "hero.image", "hero.cta.label", "hero.cta.href"]
+    },
+    "about": {
+      "type": "static",
+      "keys": ["about.body"]
+    },
+    "contact": {
+      "type": "form",
+      "keys": ["contact.email", "contact.phone"],
+      "endpoint": "https://formspree.io/f/xxxx"
+    }
+  },
+  "media": [
+    {
+      "id": 7,
+      "url": "https://demo.local/wp-content/uploads/2026/07/hero.jpg",
+      "alt": "Latte art",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "meta": {
+    "templateId": "cafe-next",
+    "templateVersion": "1.0.0"
+  },
+  "hints": {
+    "hero.title": { "component": "Hero", "prop": "title", "format": "plain" },
+    "hero.subtitle": { "component": "Hero", "prop": "subtitle", "format": "plain" },
+    "about.body": { "component": "AboutSection", "prop": "html", "format": "html" }
+  }
+}

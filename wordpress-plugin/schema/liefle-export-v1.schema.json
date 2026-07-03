@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://liefle.io/schema/liefle-export-v1.schema.json",
+  "title": "Liefle WordPress Export",
+  "type": "object",
+  "required": ["schemaVersion", "exportedAt", "source", "site", "keys"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "exportedAt": { "type": "string", "format": "date-time" },
+    "source": {
+      "type": "object",
+      "required": ["siteUrl", "wpVersion", "pluginVersion"],
+      "properties": {
+        "siteUrl": { "type": "string", "format": "uri" },
+        "wpVersion": { "type": "string" },
+        "pluginVersion": { "type": "string" },
+        "locale": { "type": "string" }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "tagline": { "type": "string" },
+        "language": { "type": "string" }
+      }
+    },
+    "keys": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "boolean" },
+          { "type": "number" },
+          { "type": "array", "items": { "type": "string" } },
+          { "type": "object" }
+        ]
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "keys"],
+        "properties": {
+          "type": { "enum": ["static", "form", "incremental"] },
+          "keys": { "type": "array", "items": { "type": "string" } },
+          "endpoint": { "type": "string" }
+        }
+      }
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "url"],
+        "properties": {
+          "id": { "type": "integer" },
+          "url": { "type": "string", "format": "uri" },
+          "alt": { "type": "string" },
+          "width": { "type": "integer" },
+          "height": { "type": "integer" }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "templateId": { "type": "string" },
+        "templateVersion": { "type": "string" }
+      }
+    },
+    "hints": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "component": { "type": "string" },
+          "prop": { "type": "string" },
+          "format": { "enum": ["plain", "html", "url", "markdown"] }
+        }
+      }
+    }
+  }
+}
