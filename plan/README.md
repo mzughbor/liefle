@@ -12,6 +12,7 @@ This folder is the living blueprint for Liefle: a multi-tenant SaaS where each c
 | 4 | [04-dns-and-domains.md](./04-dns-and-domains.md) | How customers connect domains (CNAME vs NS vs A) |
 | 5 | [05-tech-stack.md](./05-tech-stack.md) | Next.js, DB, auth, hosting choices |
 | 6 | [06-mvp-checklist.md](./06-mvp-checklist.md) | Numbered step-by-step tasks you can execute today |
+| — | [vps-infra/README.md](./vps-infra/README.md) | **Your VPS** — reverse proxy hands-on, LXD, IPs, CloudPanel |
 
 ---
 
