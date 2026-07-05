@@ -56,7 +56,7 @@ Cross-track execution order. Items 1–20 = shippable OSS POC. Items 21+ = produ
 
 ## Phase E — Business & merge with SaaS
 
-31. [ ] Template marketplace page on liefle.io
+31. [ ] Template marketplace page on liefle.com
 32. [ ] Pro: AI mapping credits
 33. [ ] Pro: priority templates
 34. [ ] Shared component library with `../plan/` Next app

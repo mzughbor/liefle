@@ -20,13 +20,13 @@ You **do not** need a second VPS or new $780 server to add IPs — ask your **cu
 
 `195.35.1.18` serves:
 
-- `connect.liefle.io`
+- `connect.liefle.com`
 - `www.client1.com`
 - `www.client2.com`
 
 Browsers use **domain names**; the IP is shared. This is how most of the internet works.
 
-**Customers never type your IP** — they add CNAME to `connect.liefle.io`.
+**Customers never type your IP** — they add CNAME to `connect.liefle.com`.
 
 ---
 
@@ -132,7 +132,7 @@ Downside: some users/registrars still IPv4-only.
 
 ### Setup
 
-1. Move `connect.liefle.io` DNS to Cloudflare
+1. Move `connect.liefle.com` DNS to Cloudflare
 2. A record → `195.35.1.18`
 3. Toggle **Proxied** (orange cloud)
 4. SSL/TLS mode: **Full (strict)** — Caddy must have valid cert on origin
@@ -180,8 +180,8 @@ This is **isolation**, not a substitute for dedicated public IPv4.
 
 | Tier | DNS instruction | Public sees | Good for |
 |------|-----------------|-------------|----------|
-| Starter | CNAME → connect.liefle.io | Shared IP + domain | MVP |
-| Maker | CNAME → connect.liefle.io + CF proxy | Cloudflare IP | Hide origin |
+| Starter | CNAME → connect.liefle.com | Shared IP + domain | MVP |
+| Maker | CNAME → connect.liefle.com + CF proxy | Cloudflare IP | Hide origin |
 | Pro | A → dedicated `195.35.1.19` | Unique IPv4 | Client wants own IP in DNS panel |
 | Agency | IPv6 or extra IPv4 pool | Unique | Many sites |
 

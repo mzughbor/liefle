@@ -11,7 +11,7 @@ Each phase has a **done when** gate. Do not start the next phase until the gate 
 **Done when:**
 - [ ] `index.html` live on your domain with good SEO meta + JSON-LD
 - [ ] `plan/` docs read and you agree with architecture
-- [ ] Domain purchased (`liefle.io` or similar)
+- [ ] Domain purchased (`liefle.com` or similar)
 - [ ] Git repo + Vercel project connected (can deploy static site)
 
 **Time:** 1–2 days
@@ -25,7 +25,7 @@ Each phase has a **done when** gate. Do not start the next phase until the gate 
 **Tasks:**
 1. `npx create-next-app@latest liefle-app` (TypeScript, App Router, Tailwind optional)
 2. Port `index.html` → `app/page.tsx` + components
-3. Deploy to Vercel → `app.liefle.io` or `liefle.io`
+3. Deploy to Vercel → `app.liefle.com` or `liefle.com`
 4. Keep `liefle-front` as archive OR merge into monorepo
 
 **Done when:**
@@ -63,15 +63,15 @@ Each phase has a **done when** gate. Do not start the next phase until the gate 
 
 ## Phase 3 — Domain verification (subdomain first)
 
-**Goal:** Free trial on `slug.liefle.app` without custom DNS complexity.
+**Goal:** Free trial on `slug.falcon.codes` without custom DNS complexity.
 
 **Tasks:**
-1. Wildcard DNS: `*.liefle.app` → Vercel (or proxy later)
+1. Wildcard DNS: `*.falcon.codes` → Vercel (or proxy later)
 2. Middleware reads `Host` header → lookup tenant by slug
 3. “Create site” flow: user picks slug → row in DB → placeholder page
 
 **Done when:**
-- [ ] `https://myshop.liefle.app` shows tenant placeholder
+- [ ] `https://myshop.falcon.codes` shows tenant placeholder
 - [ ] Unknown slug → 404 or marketing redirect
 
 **Time:** 2–4 days

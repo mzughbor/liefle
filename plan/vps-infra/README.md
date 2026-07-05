@@ -57,7 +57,7 @@ You do **not** need nested full VMs on day one. Start Layer 1 (reverse proxy), t
 
 | Method | Separate public IP? | Cost | Notes |
 |--------|---------------------|------|-------|
-| **One IP + reverse proxy + hostnames** | No — same IP, different domains | $0 | Standard; customers use `connect.liefle.io`, not the IP |
+| **One IP + reverse proxy + hostnames** | No — same IP, different domains | $0 | Standard; customers use `connect.liefle.com`, not the IP |
 | **Buy extra IPv4 from your host** | Yes — bind many IPs to **same** VPS | ~$1–5/IP/mo | Best real answer for “dedicated IP per client” |
 | **IPv6 /64 subnet** | Yes — many IPv6 addresses | Often free | Not all clients/registrars ready |
 | **Cloudflare proxy** | Visitors see Cloudflare IP | Free tier | Hides your IP in browser; power users can still find origin if you leak it |

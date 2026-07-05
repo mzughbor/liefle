@@ -4,7 +4,7 @@
 
 If you tell customers: “Point CNAME to `cname.vercel-dns.com`” — they see Vercel in their DNS panel. You also tie your brand to Vercel’s infrastructure.
 
-**Better story:** “Point CNAME to `connect.liefle.io`” — everything looks like Liefle.
+**Better story:** “Point CNAME to `connect.liefle.com`” — everything looks like Liefle.
 
 Technically: customer DNS → **your VPS** → **Vercel origin** → Next.js app.
 
@@ -18,12 +18,12 @@ Customer browser
       │  https://www.client.com
       ▼
 ┌──────────────────┐
-│  DNS at registrar │  CNAME www → connect.liefle.io
+│  DNS at registrar │  CNAME www → connect.liefle.com
 └────────┬─────────┘
          ▼
 ┌──────────────────┐
 │  VPS ($3/mo)      │  Caddy or Nginx
-│  connect.liefle.io│  • TLS cert for client.com (on-demand or DNS-01)
+│  connect.liefle.com│  • TLS cert for client.com (on-demand or DNS-01)
 │  IP: 1.2.3.4      │  • Lookup tenant in DB/cache
 └────────┬─────────┘  • Proxy_pass to Vercel
          │
@@ -67,7 +67,7 @@ At your registrar (Cloudflare recommended):
 | A | `proxy` | `1.2.3.4` (same, alias) |
 | CNAME | `www` on marketing | Vercel or `connect` depending on setup |
 
-Customers will use: **`connect.liefle.io`** as their CNAME target.
+Customers will use: **`connect.liefle.com`** as their CNAME target.
 
 ### 3. Install Caddy
 
@@ -91,7 +91,7 @@ Save as `/etc/caddy/Caddyfile`:
 }
 
 # Your proxy entry hostname (optional landing)
-connect.liefle.io {
+connect.liefle.com {
 	respond "Liefle domain connect — point your CNAME here" 200
 }
 
@@ -131,7 +131,7 @@ Caddy calls this before issuing a certificate.
 
 In Vercel project → Settings → Domains:
 
-- Add `liefle.io`, `*.liefle.app` (wildcard if plan allows)
+- Add `liefle.com`, `*.falcon.codes` (wildcard if plan allows)
 - For custom domains: you may add them via **Vercel API** when customer verifies, OR rely on Host header routing if using a single deployment (see below)
 
 **Two strategies:**
@@ -162,7 +162,7 @@ sudo ufw enable
 // middleware.ts (concept)
 const host = request.headers.get('host')?.replace(/^www\./, '');
 const tenant = await getTenantByDomain(host);
-if (!tenant) return NextResponse.redirect('https://liefle.io');
+if (!tenant) return NextResponse.redirect('https://liefle.com');
 // rewrite to tenant site route
 return NextResponse.rewrite(new URL(`/site/${tenant.slug}`, request.url));
 ```
@@ -173,9 +173,9 @@ return NextResponse.rewrite(new URL(`/site/${tenant.slug}`, request.url));
 
 | Method | Customer DNS | Difficulty |
 |--------|--------------|------------|
-| **CNAME to connect.liefle.io** | CNAME `www` → `connect.liefle.io` | Easy; Caddy on-demand TLS |
+| **CNAME to connect.liefle.com** | CNAME `www` → `connect.liefle.com` | Easy; Caddy on-demand TLS |
 | **A record to VPS IP** | A `@` → `1.2.3.4` | Need apex proxy + on-demand TLS |
-| **NS delegation** | NS `@` → `ns1.liefle.io` | Full control; harder for customers; use later for “we manage DNS” tier |
+| **NS delegation** | NS `@` → `ns1.liefle.com` | Full control; harder for customers; use later for “we manage DNS” tier |
 
 **MVP recommendation:** Ask for **`www` CNAME** only. Apex (`client.com` without www) can redirect via registrar or add A record later.
 

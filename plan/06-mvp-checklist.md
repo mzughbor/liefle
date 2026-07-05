@@ -8,7 +8,7 @@ Print this. Check boxes as you go. Search docs when stuck — each step is one f
 
 ### Day 1–2: Domain & static presence
 
-1. [ ] Buy domain (`liefle.io` or similar)
+1. [ ] Buy domain (`liefle.com` or similar)
 2. [ ] Push `liefle-front` to GitHub
 3. [ ] Deploy static `index.html` to Vercel
 4. [ ] Point domain apex/`www` to Vercel (marketing site)
@@ -46,12 +46,12 @@ Print this. Check boxes as you go. Search docs when stuck — each step is one f
 
 ## Week 3 — Subdomain tenant sites
 
-23. [ ] Add wildcard domain `*.liefle.app` in Vercel DNS settings
-24. [ ] Write `middleware.ts`: if host ends with `.liefle.app`, extract slug
+23. [ ] Add wildcard domain `*.falcon.codes` in Vercel DNS settings
+24. [ ] Write `middleware.ts`: if host ends with `.falcon.codes`, extract slug
 25. [ ] Lookup tenant by slug in DB
 26. [ ] Rewrite to `/site/[slug]` route
 27. [ ] Show placeholder: “Site coming soon” for new tenants
-28. [ ] **Test:** create tenant `demo` → open `https://demo.liefle.app`
+28. [ ] **Test:** create tenant `demo` → open `https://demo.falcon.codes`
 
 ---
 
@@ -74,12 +74,12 @@ Print this. Check boxes as you go. Search docs when stuck — each step is one f
 ## Week 5–6 — Reverse proxy & custom domain
 
 38. [ ] Rent $3–5 VPS (Ubuntu 24.04)
-39. [ ] Create DNS A record: `connect.liefle.io` → VPS IP
+39. [ ] Create DNS A record: `connect.liefle.com` → VPS IP
 40. [ ] Install Caddy on VPS
 41. [ ] Configure reverse proxy to Vercel origin (see `plan/03`)
 42. [ ] Build allow-domain API (even a 50-line Express app)
 43. [ ] Domain UI: user enters `www.mybrand.com`
-44. [ ] Show CNAME instructions (`www` → `connect.liefle.io`)
+44. [ ] Show CNAME instructions (`www` → `connect.liefle.com`)
 45. [ ] TXT verify record generation
 46. [ ] DNS verify endpoint (use `dns.promises.resolveTxt` in Node)
 47. [ ] On verify: add domain to allow API + DB `status=verified`

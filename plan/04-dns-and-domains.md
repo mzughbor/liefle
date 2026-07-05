@@ -20,7 +20,7 @@ Keep copy simple. Most users fail on step 3 if you show three options.
 |-------|-------|
 | Type | CNAME |
 | Name / Host | `www` |
-| Value / Points to | `connect.liefle.io` |
+| Value / Points to | `connect.liefle.com` |
 | TTL | 3600 (or Auto) |
 
 **Why www first:**
@@ -54,7 +54,7 @@ Less ideal when proxy sits in middle. Prefer TXT for MVP.
 
 ---
 
-## Subdomain trial (`*.liefle.app`)
+## Subdomain trial (`*.falcon.codes`)
 
 **Your DNS (one-time setup):**
 
@@ -64,7 +64,7 @@ Less ideal when proxy sits in middle. Prefer TXT for MVP.
 
 **Flow:**
 1. User picks `myshop` → you create tenant slug `myshop`
-2. Site live at `https://myshop.liefle.app`
+2. Site live at `https://myshop.falcon.codes`
 3. Cron deletes after 24h if no payment
 
 No customer DNS step — fastest path to demo.
@@ -77,8 +77,8 @@ Your landing page mock shows NS records. That’s a **power user / Pro** feature
 
 | Type | Name | Value |
 |------|------|-------|
-| NS | `@` | `ns1.liefle.io` |
-| NS | `@` | `ns2.liefle.io` |
+| NS | `@` | `ns1.liefle.com` |
+| NS | `@` | `ns2.liefle.com` |
 
 **Pros:** You control all records (apex, www, ACME DNS-01).  
 **Cons:** Customer may break email if they had existing MX; scary for beginners.
@@ -145,7 +145,7 @@ Show collapsible “Help for GoDaddy / Namecheap / Cloudflare” with screenshot
 ## Testing checklist (you, before launch)
 
 1. Buy cheap domain ($1 promo) on Namecheap
-2. Add CNAME `www` → `connect.liefle.io`
+2. Add CNAME `www` → `connect.liefle.com`
 3. Add TXT `_liefle` → your token
 4. Verify in dashboard
 5. `curl -I https://www.yourtestdomain.com` → 200, valid cert

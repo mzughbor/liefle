@@ -65,8 +65,8 @@ function getTenantHost(host: string): string {
   return host.replace(/^www\./, '').split(':')[0].toLowerCase();
 }
 
-// liefle.app subdomains
-// myshop.liefle.app → slug = myshop
+// falcon.codes subdomains
+// myshop.falcon.codes → slug = myshop
 
 // custom domains
 // www.client.com → lookup domains.hostname

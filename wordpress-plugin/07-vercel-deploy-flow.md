@@ -69,7 +69,7 @@ Two paths:
 | Path | Setup |
 |------|-------|
 | **Direct Vercel** | User adds domain in Vercel dashboard |
-| **Liefle proxy** | Same as ../plan/03 — customer CNAME to `connect.liefle.io` |
+| **Liefle proxy** | Same as ../plan/03 — customer CNAME to `connect.liefle.com` |
 
 Track B users are technical enough for Vercel DNS initially.
 

@@ -37,7 +37,7 @@ Everything ships as **one Next.js project**, one Vercel project, one git repo (f
                           │ HTTPS (Host: customer.com)
 ┌─────────────────────────┴───────────────────────────────┐
 │           Reverse proxy on $3 VPS (Caddy)               │
-│   customer.com  →  proxy.liefle.io  →  vercel origin    │
+│   customer.com  →  proxy.liefle.com  →  vercel origin    │
 └─────────────────────────────────────────────────────────┘
 ```
 

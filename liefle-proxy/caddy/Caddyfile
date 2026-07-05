@@ -1,0 +1,45 @@
+{
+	email {$CADDY_EMAIL:admin@liefle.com}
+
+	on_demand_tls {
+		ask http://{$ALLOW_API_HOST:127.0.0.1}:{$ALLOW_API_PORT:8080}/allow-domain
+	}
+}
+
+# Production — customers CNAME www → connect.liefle.com
+connect.liefle.com {
+	respond "Liefle domain connect — point your CNAME here" 200
+}
+
+# Test DNS zone — use falcon.codes for staging / customer flow tests
+connect.falcon.codes {
+	respond "Liefle test connect — point your CNAME here (falcon.codes)" 200
+}
+
+# Block direct IP access when Cloudflare is in front
+:443 {
+	@badHost host {$VPS_IP:195.35.1.18}
+	handle @badHost {
+		respond "Forbidden" 403
+	}
+
+	tls {
+		on_demand
+	}
+
+	reverse_proxy {$VERCEL_ORIGIN:https://liefle.vercel.app} {
+		header_up Host {host}
+		header_up X-Forwarded-Host {host}
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+:80 {
+	@badHost host {$VPS_IP:195.35.1.18}
+	handle @badHost {
+		respond "Forbidden" 403
+	}
+
+	redir https://{host}{uri} permanent
+}

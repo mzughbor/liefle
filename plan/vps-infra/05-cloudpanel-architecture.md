@@ -12,9 +12,9 @@ You already paid for CloudPanel hosting workflow. **Keep it** for WordPress/PHP 
 │                                                              │
 │  Caddy :443 ─────────────────────────────────────────────  │
 │    │                                                         │
-│    ├─ *.liefle.app / custom domains → Vercel (Liefle SaaS)  │
+│    ├─ *.falcon.codes / custom domains → Vercel (Liefle SaaS)  │
 │    ├─ agency-wp.com → 127.0.0.1:8080 (CloudPanel nginx)     │
-│    └─ connect.liefle.io → status / docs                     │
+│    └─ connect.liefle.com → status / docs                     │
 │                                                              │
 │  CloudPanel :8443 ─ admin UI (restrict by IP if possible)   │
 │                                                              │

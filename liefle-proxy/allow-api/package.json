@@ -1,0 +1,14 @@
+{
+  "name": "liefle-allow-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Domain allow-list API for Caddy on-demand TLS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

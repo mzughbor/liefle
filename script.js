@@ -18,7 +18,7 @@
       <div style="margin-top:10px;display:grid;gap:6px;font-family:ui-monospace,monospace;font-size:12.5px">
         <div>TYPE  <code>NS</code></div>
         <div>HOST  <code>_liefle</code></div>
-        <div>VALUE <code>verify.liefle.io</code></div>
+        <div>VALUE <code>verify.liefle.com</code></div>
       </div>
       <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
         <button type="button" class="btn btn-primary" onclick="this.innerText='Verified ✓';this.disabled=true;this.style.opacity=0.7">Verify domain</button>
@@ -41,7 +41,7 @@
       Pick a free subdomain — yours for 24 hours to try the editor.
       <div style="margin-top:12px;display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:6px 6px 6px 14px">
         <input id="subInput" placeholder="mybrand" style="flex:1;background:transparent;border:0;outline:none;color:var(--text);font:500 15px var(--font);padding:8px 0" />
-        <span style="color:var(--muted);font-size:14px">.liefle.app</span>
+        <span style="color:var(--muted);font-size:14px">.falcon.codes</span>
         <button type="button" class="btn btn-primary" onclick="this.innerText='Reserved ✓';this.disabled=true;this.style.opacity=0.7">Claim</button>
       </div>
       <div style="margin-top:10px;font-size:12.5px;color:var(--muted)">

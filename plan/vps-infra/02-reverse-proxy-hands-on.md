@@ -43,7 +43,7 @@ Write down: web server process (nginx/openlitespeed), and whether **80/443 are t
 Internet :443 → Caddy → {
   client.com        → https://your-app.vercel.app
   mylocalwp.com     → https://127.0.0.1:8443 (CloudPanel nginx)
-  connect.liefle.io → info page or Vercel
+  connect.liefle.com → info page or Vercel
 }
 CloudPanel UI stays on :8443
 ```
@@ -145,7 +145,7 @@ This step varies by CloudPanel version. Safe approach:
 1. Read CloudPanel docs: “reverse proxy external” or “custom nginx”
 2. Or create **new sites only on 8080** for testing while learning
 
-**POC shortcut:** If conflict is too messy, run Caddy on **443** only for `connect.liefle.io` + test domains, leave CloudPanel sites as-is until you schedule maintenance window.
+**POC shortcut:** If conflict is too messy, run Caddy on **443** only for `connect.liefle.com` + test domains, leave CloudPanel sites as-is until you schedule maintenance window.
 
 ### Option 3b — Use second IP for CloudPanel (if you have/add one)
 
@@ -167,7 +167,7 @@ Create `/etc/caddy/Caddyfile`:
 }
 
 # Health check — prove Caddy works
-connect.liefle.io {
+connect.liefle.com {
 	respond "Liefle connect OK" 200
 }
 
@@ -202,7 +202,7 @@ sudo systemctl status caddy --no-pager
 
 ```bash
 # DNS must point to your VPS first
-curl -I https://connect.liefle.io
+curl -I https://connect.liefle.com
 
 curl -I https://www.yourtestdomain.com
 

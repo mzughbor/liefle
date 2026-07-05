@@ -42,10 +42,10 @@ You paid for a **KVM VPS**. Think of it as a real small computer in a datacenter
 For Liefle, customers configure:
 
 ```
-CNAME  www  →  connect.liefle.io
+CNAME  www  →  connect.liefle.com
 ```
 
-They never need `195.35.1.18` in your docs. You put the IP only on **your** DNS A record for `connect.liefle.io`.
+They never need `195.35.1.18` in your docs. You put the IP only on **your** DNS A record for `connect.liefle.com`.
 
 To **hide** the IP from visitors who inspect traffic: put **Cloudflare** in front (see [04-multiple-ips-and-hiding-ip.md](./04-multiple-ips-and-hiding-ip.md)).
 
@@ -98,8 +98,8 @@ It is **not** a reverse proxy to Vercel by default, but it **can** host local si
 
 | Traffic | Backend | Managed by |
 |---------|---------|------------|
-| `liefle.io` marketing | Vercel or local static | Caddy route |
-| `*.liefle.app` tenants | Vercel | Caddy → Vercel |
+| `liefle.com` marketing | Vercel or local static | Caddy route |
+| `*.falcon.codes` tenants | Vercel | Caddy → Vercel |
 | `www.client.com` (custom) | Vercel | Caddy → Vercel + on-demand TLS |
 | `blog.myagency.com` (your WP) | PHP on same VPS | CloudPanel |
 | `panel.yourdomain.com` | CloudPanel UI | Port 8443, don’t expose publicly without IP allowlist |

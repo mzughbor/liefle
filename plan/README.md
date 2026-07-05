@@ -52,7 +52,7 @@ liefle-front/          ← you are here (static marketing + plan)
 
 You can demo this to one real person:
 
-1. They sign up on `liefle.io` (or your domain).
+1. They sign up on `liefle.com` (or your domain).
 2. They add one DNS record you give them.
 3. Within ~60 seconds, `https://their-domain.com` shows a template site.
 4. They log into admin, change logo + business name, click Publish.

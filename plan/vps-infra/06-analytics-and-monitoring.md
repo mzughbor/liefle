@@ -97,7 +97,7 @@ Requires `jq`. Run via cron:
 
 Free tiers:
 
-- [UptimeRobot](https://uptimerobot.com) — ping `connect.liefle.io` + 2 client domains
+- [UptimeRobot](https://uptimerobot.com) — ping `connect.liefle.com` + 2 client domains
 - [Better Stack](https://betterstack.com)
 
 Alerts when VPS or Caddy down — don’t rely on checking manually.

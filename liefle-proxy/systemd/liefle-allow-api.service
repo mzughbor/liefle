@@ -1,0 +1,18 @@
+[Unit]
+Description=Liefle Allow Domain API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/liefle-proxy/allow-api
+EnvironmentFile=/opt/liefle-proxy/.env
+Environment=PORT=8080
+Environment=HOST=127.0.0.1
+Environment=DOMAINS_FILE=/opt/liefle-proxy/data/domains.json
+ExecStart=/usr/bin/node /opt/liefle-proxy/allow-api/server.js
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
