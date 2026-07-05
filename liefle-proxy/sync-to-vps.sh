@@ -46,6 +46,7 @@ rsync -avz -e "$RSYNC_SSH" \
   ./proxy-test-stop.sh \
   ./start-local.sh \
   ./README.md \
+  ./docs/VPS-OPERATIONS-GUIDE.md \
   "${HOST}:${REMOTE_PATH}/"
 
 if [[ -f .env ]]; then

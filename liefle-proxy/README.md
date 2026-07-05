@@ -21,6 +21,7 @@ www.client.com  ──CNAME──►  connect.liefle.com  ──A──►  195.
 | `docker-compose.yml` | Run Caddy + allow-api on the VPS |
 | `deploy.sh` | Rsync + `docker compose up` on VPS |
 | `docs/cloudflare-dns-setup.md` | Step-by-step Cloudflare + customer DNS guide |
+| `docs/VPS-OPERATIONS-GUIDE.md` | **Full ops guide** — install, run, stop, DNS, troubleshooting |
 
 ## Quick start (local)
 
@@ -148,6 +149,8 @@ Long-term: Caddy in front, CloudPanel sites on `127.0.0.1:8080` — see `plan/vp
 
 ## Related docs
 
+- **[docs/VPS-OPERATIONS-GUIDE.md](./docs/VPS-OPERATIONS-GUIDE.md)** — complete install / run / stop / restore guide
+- `docs/cloudflare-dns-setup.md` — Cloudflare + GoDaddy DNS
 - `plan/03-reverse-proxy.md` — architecture
 - `plan/04-dns-and-domains.md` — verification flow
 - `plan/vps-infra/02-reverse-proxy-hands-on.md` — VPS hands-on
