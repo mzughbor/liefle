@@ -64,6 +64,27 @@ curl -X POST http://127.0.0.1:8080/api/domains \
 
 ## Deploy to VPS
 
+**No git on server?** Push files from your laptop with `sync-to-vps.sh`:
+
+```bash
+cd liefle-proxy
+SSH_OPTS='-o IdentitiesOnly=yes' ./sync-to-vps.sh
+```
+
+Then on the VPS:
+
+```bash
+ssh -o IdentitiesOnly=yes root@195.35.1.18
+cd /opt/liefle-proxy
+bash proxy-test-start.sh
+```
+
+Full deploy (sync + docker compose up):
+
+```bash
+SSH_OPTS='-o IdentitiesOnly=yes' ./deploy.sh
+```
+
 1. Configure DNS — see [docs/cloudflare-dns-setup.md](./docs/cloudflare-dns-setup.md)
 2. Copy env: `cp .env.example .env` and set `VPS_IP`, `VERCEL_ORIGIN`, `ALLOW_API_SECRET`
 3. Deploy:
@@ -108,7 +129,22 @@ After verification, your app calls `POST /api/domains` so Caddy can issue a cert
 
 ## CloudPanel note
 
-If CloudPanel already uses ports 80/443 on the VPS, resolve that before running Caddy — see `plan/vps-infra/02-reverse-proxy-hands-on.md`. Docker publishing 80/443 will conflict with existing listeners.
+CloudPanel nginx uses **80/443**. Caddy cannot bind those ports at the same time.
+
+**Reversible test (recommended):**
+
+```bash
+cd /opt/liefle-proxy
+bash proxy-test-start.sh   # stops nginx, starts proxy
+# ... test connect.falcon.codes / connect.liefle.com ...
+bash proxy-test-stop.sh    # stops proxy, restores nginx + your sites
+```
+
+During the test:
+- **CloudPanel UI** (`https://195.35.1.18:8443`) — still works
+- **Hosted sites** on 80/443 — temporarily down
+
+Long-term: Caddy in front, CloudPanel sites on `127.0.0.1:8080` — see `plan/vps-infra/02-reverse-proxy-hands-on.md`.
 
 ## Related docs
 

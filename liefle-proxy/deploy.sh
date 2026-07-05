@@ -14,26 +14,34 @@ source .env
 
 HOST="${DEPLOY_HOST:-root@195.35.1.18}"
 REMOTE_PATH="${DEPLOY_PATH:-/opt/liefle-proxy}"
+SSH_OPTS="${SSH_OPTS:-}"
+RSYNC_SSH="ssh ${SSH_OPTS}"
 
 echo "==> Deploying liefle-proxy to ${HOST}:${REMOTE_PATH}"
 
-ssh "$HOST" "mkdir -p ${REMOTE_PATH}/{caddy,allow-api,data,systemd}"
+ssh ${SSH_OPTS} "$HOST" "mkdir -p ${REMOTE_PATH}/{caddy,allow-api,data,systemd}"
 
-rsync -avz --delete \
+rsync -avz -e "$RSYNC_SSH" --delete \
   --exclude '.env' \
   --exclude 'data/' \
   --exclude '.git' \
   ./allow-api/ "${HOST}:${REMOTE_PATH}/allow-api/"
 
-rsync -avz \
+rsync -avz -e "$RSYNC_SSH" \
   ./caddy/Caddyfile \
   ./docker-compose.yml \
   ./.env.example \
+  ./setup-vps.sh \
+  ./proxy-test-start.sh \
+  ./proxy-test-stop.sh \
+  ./sync-to-vps.sh \
   "${HOST}:${REMOTE_PATH}/"
 
-scp .env "${HOST}:${REMOTE_PATH}/.env"
+if [[ -f .env ]]; then
+  scp ${SSH_OPTS} .env "${HOST}:${REMOTE_PATH}/.env"
+fi
 
-ssh "$HOST" bash -s <<EOF
+ssh ${SSH_OPTS} "$HOST" bash -s <<EOF
 set -euo pipefail
 cd ${REMOTE_PATH}
 
