@@ -492,6 +492,89 @@ When the Next.js app is built, users connect custom domains like this:
 
 ## Troubleshooting
 
+### Site returns 500 after proxy test (e.g. falconofcodes.com)
+
+**Important:** `falconofcodes.com` ≠ `falcon.codes`. They are different domains.
+
+| Domain | What it is |
+|--------|------------|
+| `falcon.codes` | Liefle test DNS (`connect.falcon.codes` → proxy) |
+| `falconofcodes.com` | Your CloudPanel site (Django app on VPS) |
+
+A **500 Server Error** with this HTML means **Django crashed**, not Caddy/Liefle:
+
+```html
+<h1>Server Error (500)</h1>
+```
+
+Cloudflare sits in front (`server: cloudflare`), but the origin is your VPS nginx + Django app.
+
+**Diagnose on VPS:**
+
+```bash
+ssh -o IdentitiesOnly=yes root@195.35.1.18
+
+# 1. Is CloudPanel nginx back? (should be nginx, NOT docker-proxy)
+ss -tlnp | grep -E ':80|:443'
+systemctl status nginx --no-pager
+
+# 2. Is Liefle proxy still running? (should be stopped after restore)
+docker compose -f /opt/liefle-proxy/docker-compose.yml ps
+
+# 3. Confirm 500 comes from origin, not Cloudflare alone
+curl -sI --resolve falconofcodes.com:443:195.35.1.18 https://falconofcodes.com -k | head -5
+# server: nginx + HTTP 500 → Django app problem on VPS
+```
+
+**Find the site in CloudPanel:**
+
+```bash
+# List sites
+clpctl site:list 2>/dev/null || ls /home/*/htdocs/ 2>/dev/null
+
+# nginx error log (adjust path if needed)
+tail -50 /home/*/logs/nginx/error.log 2>/dev/null
+tail -50 /var/log/nginx/error.log
+
+# Django / Python app logs (common CloudPanel paths)
+find /home -name "*.log" -path "*falcon*" 2>/dev/null | head -10
+journalctl -u "gunicorn*" --no-pager -n 50 2>/dev/null
+```
+
+**Common fixes after `systemctl stop/start nginx`:**
+
+```bash
+# Restore CloudPanel fully
+cd /opt/liefle-proxy && bash proxy-test-stop.sh
+
+# Restart nginx
+systemctl restart nginx
+
+# Restart PHP/Python backends (site-specific — check CloudPanel UI)
+# CloudPanel → Sites → falconofcodes.com → restart app
+```
+
+In **CloudPanel UI** (`https://195.35.1.18:8443`):
+
+1. Open the **falconofcodes.com** site
+2. Check **Logs** (nginx + application)
+3. **Restart** the site / PHP-FPM / Python process
+4. If Django: SSH into site folder and check:
+
+```bash
+# Example — path varies per site
+cd /home/<user>/htdocs/falconofcodes.com   # find real path in CloudPanel
+source venv/bin/activate 2>/dev/null
+python manage.py check
+tail -100 logs/error.log 2>/dev/null
+```
+
+**Cloudflare SSL mode:** If you recently changed DNS/SSL, set SSL/TLS → **Full (strict)** and ensure origin cert is valid.
+
+**The Liefle proxy test did not break DNS for falconofcodes.com** — that domain goes through Cloudflare to your Django app. The 500 is almost certainly the **application backend** (database down, missing env, gunicorn not running, migration needed).
+
+---
+
 ### `address already in use` on port 80
 
 **Cause:** nginx still running.  
